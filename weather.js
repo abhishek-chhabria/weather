@@ -3,15 +3,15 @@
 // Using your newfound knowledge of jQuery, re-create our weather
 // application. It should:
 // - Use a loop to create 6 days of forecast within the <div> element
-//   with class name “forecast”
-// - When clicking the “Get the weather!” button, the weather should
-//   appear with a “fade” effect
+//   with class name "forecast"
+// - When clicking the "Get the weather!" button, the weather should
+//   appear with a "fade" effect
 
 // HINTS
 
 // Each day of the forecast should use HTML markup similar to:
-// <div class=“col”>
-//   <h3><i class=“fa fa-sun-o”></i></h3>
+// <div class="col">
+//   <h3><i class="fa fa-sun-o"></i></h3>
 //   <h4>89|55</h4>
 //   <h5>Clear throughout the day.</h5>
 // </div>
@@ -33,23 +33,23 @@ let handleWeatherResponse = function(response) {
   console.log(response)
   window.response = response
 
-// **** your code starts here - don’t modify anything else. you will be sad.
+// **** your code starts here - don't modify anything else. you will be sad.
 
-// DOM for current weather(delete)
+// DOM, current weather
 
 $("#current-conditions-icon").empty();
 $("#current-conditions-text").empty();
 $(".forecast").empty();
-$("#current-conditions-icon").append(Math.round(response.currently.temperature) +  "°F");
+$("#current-conditions-icon").append(Math.round(response.currently.temperature) + "°F");
 $("#location").append(window.response);
 $("#current-conditions-text").append(response.daily.summary);
-$(".row current").fadeIn(2000); // doesnt work for now (delete)
+$(".current").fadeIn(2000);
 
-// LOOP for forecast(delete)
+// LOOP, weather forecast
 
 let markup = "";
 for(let i=0; i<6; i++) {
-   markup += "<div class=‘col-4’>";
+   markup += "<div class='col'>";
      markup += "<h3>" + icon(response.daily.data[i]) + "</i></h3>";
      markup += "<h4>" + Math.round(response.daily.data[i].temperatureHigh) + "°F" + " | " + Math.round(response.daily.data[i].temperatureLow) + "°F" +"</h4>";
      markup += "<h5>" + response.daily.data[i].summary + "</h5>";
@@ -57,7 +57,7 @@ for(let i=0; i<6; i++) {
   }
 
 $(".forecast").append(markup);
-$(".forecast").fadeIn(2000); // doesnt work for now (delete)
+$(".forecast").fadeIn(2000);
 
  // *** your code ends here - no, really.
 };
