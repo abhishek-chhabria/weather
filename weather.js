@@ -43,7 +43,8 @@ $(".forecast").empty();
 $("#current-conditions-icon").append(Math.round(response.currently.temperature) + "°F");
 $("#location").append(window.response);
 $("#current-conditions-text").append(response.daily.summary);
-$(".current").fadeIn(2000);
+$(".current").fadeIn([2000]);
+
 
 // LOOP, weather forecast
 
@@ -57,7 +58,7 @@ for(let i=0; i<6; i++) {
   }
 
 $(".forecast").append(markup);
-$(".forecast").fadeIn(2000);
+$(".forecast").fadeIn([2000]);
 
  // *** your code ends here - no, really.
 };
